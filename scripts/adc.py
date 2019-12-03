@@ -24,10 +24,13 @@ def adc():
             k=ser.read(2)
             v=struct.unpack('H', k)
             dados=v[0] * 3
-            
+            if dados > 13000:
+                print "Dados Incorretos"
+                rospy.signal_shutdown('Quit') 
             pub.publish(Int32(dados))
         except serial.SerialException:
             print "Erro captura"
+            rospy.signal_shutdown('Quit') 
         # rate.sleep()
 if __name__ == '__main__':
     try:

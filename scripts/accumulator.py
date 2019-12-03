@@ -8,7 +8,7 @@ global window
 global counter
 global pub
 global len_window
-len_window = 1600
+len_window = 800
 window=Int32MultiArray()
 window.data = len_window * [0]
 counter = 0
